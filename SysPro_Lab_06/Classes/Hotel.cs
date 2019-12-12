@@ -9,7 +9,14 @@ namespace SysPro_Lab_06
 {
     class Hotel
     {
-        public DateTime CurrentDate { get; private set; }
+        private DateTime currentDate;
+        public string CurrentDate
+        {
+            get
+            {
+                return currentDate.ToShortDateString();
+            }
+        }
 
         public bool IsOpen { get; private set; }
 
@@ -27,7 +34,7 @@ namespace SysPro_Lab_06
 
         public int RoomsOccupied { get; private set; }
 
-        public object locker;
+        //public object locker;
 
         static Hotel()
         {
@@ -61,7 +68,7 @@ namespace SysPro_Lab_06
 
         public Hotel(DateTime currentDate)
         {
-            CurrentDate = currentDate;
+            this.currentDate = currentDate;
 
             Rooms = new ReadOnlyCollection<Room>(rooms);
 
@@ -69,86 +76,80 @@ namespace SysPro_Lab_06
 
             holidayPeriods = new List<HolidayPeriod>();
 
-            locker = new object();
+            //locker = new object();
         }
 
         public void IncrementDate()
         {
-            lock (locker)
+            currentDate = currentDate.AddDays(1);
+
+            var currHolidayPeriod = holidayPeriods.Last();
+
+            if (currentDate == currHolidayPeriod.EndDate)
+                IsOpen = false;
+
+            foreach (var client in currHolidayPeriod.Clients)
             {
-                CurrentDate = CurrentDate.AddDays(1);
-
-                var currHolidayPeriod = holidayPeriods.Last();
-
-                if (CurrentDate == currHolidayPeriod.EndDate)
-                    IsOpen = false;
-
-                foreach (var client in currHolidayPeriod.Clients)
+                if (currentDate == client.DepartureDate)
                 {
-                    if (CurrentDate == client.DepartureDate)
-                    {
-                        rooms[client.RoomIndex].IsOccupied = false;
-                        RoomsOccupied--;
-                    }
+                    rooms[client.RoomIndex].IsOccupied = false;
+                    RoomsOccupied--;
                 }
             }
         }
 
         public bool TryAddClient(int daysOfStay, int numberOfPeople, double maxAcceptablePrice)
         {
-            lock (locker)
+            if (!IsOpen)
+                return false;
+
+            var currHolidayPeriod = holidayPeriods.Last();
+
+            if (currentDate.AddDays(daysOfStay) >= currHolidayPeriod.EndDate)
+                return false;
+
+            int roomIndex = -1;
+
+            for (int i = 0; i < Rooms.Count; i++)
             {
-                var currHolidayPeriod = holidayPeriods.Last();
+                if (Rooms[i].IsOccupied)
+                    continue;
 
-                if (CurrentDate.AddDays(daysOfStay) >= currHolidayPeriod.EndDate)
-                    return false;
+                if (Rooms[i].MaxNumberOfPeople < numberOfPeople)
+                    continue;
 
-                int roomIndex = -1;
+                if (Rooms[i].PricePerDay > maxAcceptablePrice)
+                    continue;
 
-                for (int i = 0; i < Rooms.Count; i++)
-                {
-                    if (Rooms[i].IsOccupied)
-                        continue;
+                roomIndex = i;
 
-                    if (Rooms[i].MaxNumberOfPeople < numberOfPeople)
-                        continue;
-
-                    if (Rooms[i].PricePerDay > maxAcceptablePrice)
-                        continue;
-
-                    roomIndex = i;
-
-                    if (Rooms[i].MaxNumberOfPeople == numberOfPeople)
-                        break;
-                }
-
-                if (roomIndex == -1)
-                    return false;
-
-                if (currHolidayPeriod.TryAddClient(CurrentDate, daysOfStay, roomIndex))
-                {
-                    rooms[roomIndex].IsOccupied = true;
-                    RoomsOccupied++;
-                    return true;
-                }
-                else
-                    return false;
+                if (Rooms[i].MaxNumberOfPeople == numberOfPeople)
+                    break;
             }
+
+            if (roomIndex == -1)
+                return false;
+
+            if (currHolidayPeriod.TryAddClient(currentDate, daysOfStay, roomIndex))
+            {
+                rooms[roomIndex].IsOccupied = true;
+                RoomsOccupied++;
+                return true;
+            }
+            else
+                return false;
         }
 
         public void StartHolidayPeriod(int durationDays)
         {
-            lock (locker)
+            if (IsOpen)
             {
-                if (IsOpen)
-                {
-                    holidayPeriods.Last().EndDate = CurrentDate.AddDays(durationDays);
-                    return;
-                }
-
-                holidayPeriods.Add(new HolidayPeriod(CurrentDate, durationDays));
-                IsOpen = true;
+                holidayPeriods.Last().EndDate = currentDate.AddDays(durationDays);
+                return;
             }
+
+            holidayPeriods.Add(new HolidayPeriod(currentDate, durationDays));
+            IsOpen = true;
         }
     }
 }
