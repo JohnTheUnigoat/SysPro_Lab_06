@@ -18,7 +18,26 @@ namespace SysPro_Lab_06
             }
         }
 
+        public string CurrentSeasonEnd
+        {
+            get
+            {
+                if (!IsOpen)
+                    return "Currently not a season";
+
+                return holidayPeriods.Last().EndDate.ToShortDateString();
+            }
+        }
+
         public bool IsOpen { get; private set; }
+
+        public string Status
+        {
+            get
+            {
+                return IsOpen ? "Open" : "Closed";
+            }
+        }
 
         private static readonly List<Room> rooms;
         public ReadOnlyCollection<Room> Rooms { get; }
@@ -82,6 +101,9 @@ namespace SysPro_Lab_06
         public void IncrementDate()
         {
             currentDate = currentDate.AddDays(1);
+
+            if (!IsOpen)
+                return;
 
             var currHolidayPeriod = holidayPeriods.Last();
 

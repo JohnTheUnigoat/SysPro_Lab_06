@@ -30,6 +30,9 @@ namespace SysPro_Lab_06
             bs.DataSource = hotel;
 
             tbCurrentDate.DataBindings.Add("Text", bs, "CurrentDate");
+            tbHolidaySeasonEnd.DataBindings.Add("Text", bs, "CurrentSeasonEnd");
+            tbRoomsOccupied.DataBindings.Add("Text", bs, "RoomsOccupied");
+            tbHotelOpen.DataBindings.Add("Text", bs, "Status");
 
             dgvRooms.DataBindings.Add("DataSource", bs, "Rooms");
 
@@ -38,6 +41,17 @@ namespace SysPro_Lab_06
             tmr.Start();
 
             trbDaycycleSpeed.ValueChanged += DaycycleSpeedChanged;
+
+            btStart.Click += btStartClick;
+        }
+
+        private void btStartClick(object sender, EventArgs e)
+        {
+            lock (locker)
+            {
+                hotel.StartHolidayPeriod((int)numDuration.Value);
+                bs.ResetBindings(false);
+            }
         }
 
         private void DaycycleSpeedChanged(object sender, EventArgs e)

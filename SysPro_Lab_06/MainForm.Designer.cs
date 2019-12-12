@@ -33,25 +33,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbCurrentDate = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbHolidaySeasonEnd = new System.Windows.Forms.TextBox();
+            this.tbRoomsOccupied = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRooms = new System.Windows.Forms.DataGridView();
             this.trbDaycycleSpeed = new System.Windows.Forms.TrackBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btStart = new System.Windows.Forms.Button();
+            this.numDuration = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbHotelOpen = new System.Windows.Forms.TextBox();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbDaycycleSpeed)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDuration)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -86,24 +86,24 @@
             this.tbCurrentDate.Location = new System.Drawing.Point(203, 14);
             this.tbCurrentDate.Name = "tbCurrentDate";
             this.tbCurrentDate.ReadOnly = true;
-            this.tbCurrentDate.Size = new System.Drawing.Size(141, 22);
+            this.tbCurrentDate.Size = new System.Drawing.Size(157, 22);
             this.tbCurrentDate.TabIndex = 3;
             // 
-            // textBox2
+            // tbHolidaySeasonEnd
             // 
-            this.textBox2.Location = new System.Drawing.Point(203, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(141, 22);
-            this.textBox2.TabIndex = 4;
+            this.tbHolidaySeasonEnd.Location = new System.Drawing.Point(203, 42);
+            this.tbHolidaySeasonEnd.Name = "tbHolidaySeasonEnd";
+            this.tbHolidaySeasonEnd.ReadOnly = true;
+            this.tbHolidaySeasonEnd.Size = new System.Drawing.Size(157, 22);
+            this.tbHolidaySeasonEnd.TabIndex = 4;
             // 
-            // textBox3
+            // tbRoomsOccupied
             // 
-            this.textBox3.Location = new System.Drawing.Point(203, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(141, 22);
-            this.textBox3.TabIndex = 5;
+            this.tbRoomsOccupied.Location = new System.Drawing.Point(203, 70);
+            this.tbRoomsOccupied.Name = "tbRoomsOccupied";
+            this.tbRoomsOccupied.ReadOnly = true;
+            this.tbRoomsOccupied.Size = new System.Drawing.Size(157, 22);
+            this.tbRoomsOccupied.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -159,8 +159,8 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.numericUpDown1);
+            this.groupBox3.Controls.Add(this.btStart);
+            this.groupBox3.Controls.Add(this.numDuration);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(194, 415);
             this.groupBox3.Name = "groupBox3";
@@ -169,22 +169,32 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Holiday season";
             // 
-            // button1
+            // btStart
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(208, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 56);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btStart.Location = new System.Drawing.Point(208, 13);
+            this.btStart.Name = "btStart";
+            this.btStart.Size = new System.Drawing.Size(109, 56);
+            this.btStart.TabIndex = 2;
+            this.btStart.Text = "Start";
+            this.btStart.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // numDuration
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(14, 44);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(124, 22);
-            this.numericUpDown1.TabIndex = 1;
+            this.numDuration.Location = new System.Drawing.Point(14, 44);
+            this.numDuration.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numDuration.Name = "numDuration";
+            this.numDuration.Size = new System.Drawing.Size(124, 22);
+            this.numDuration.TabIndex = 1;
+            this.numDuration.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -198,7 +208,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(388, 29);
+            this.label5.Location = new System.Drawing.Point(407, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 16);
             this.label5.TabIndex = 11;
@@ -206,12 +216,12 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(391, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(74, 22);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.Text = "Closed";
+            this.tbHotelOpen.Location = new System.Drawing.Point(410, 54);
+            this.tbHotelOpen.Name = "textBox1";
+            this.tbHotelOpen.ReadOnly = true;
+            this.tbHotelOpen.Size = new System.Drawing.Size(74, 22);
+            this.tbHotelOpen.TabIndex = 12;
+            this.tbHotelOpen.Text = "Closed";
             // 
             // tmr
             // 
@@ -222,13 +232,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 506);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbHotelOpen);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbRoomsOccupied);
+            this.Controls.Add(this.tbHolidaySeasonEnd);
             this.Controls.Add(this.tbCurrentDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -248,7 +258,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDuration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,18 +270,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbCurrentDate;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbHolidaySeasonEnd;
+        private System.Windows.Forms.TextBox tbRoomsOccupied;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvRooms;
         private System.Windows.Forms.TrackBar trbDaycycleSpeed;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btStart;
+        private System.Windows.Forms.NumericUpDown numDuration;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbHotelOpen;
         private System.Windows.Forms.Timer tmr;
     }
 }
