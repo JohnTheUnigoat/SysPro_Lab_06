@@ -10,7 +10,7 @@ namespace SysPro_Lab_06
     class HolidayPeriod
     {
         public DateTime StartDate { get; }
-        public DateTime EndDate { get; }
+        public DateTime EndDate { get; set; }
 
         private List<ClientInfo> clients;
         public ReadOnlyCollection<ClientInfo> Clients

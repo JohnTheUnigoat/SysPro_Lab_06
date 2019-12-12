@@ -8,6 +8,9 @@ namespace SysPro_Lab_06
 {
     static class Program
     {
+        internal static readonly int numberOfRooms = 20;
+        internal static Random rand = new Random();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
