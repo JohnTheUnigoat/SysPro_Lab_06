@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace SysPro_Lab_06
 {
@@ -51,9 +51,14 @@ namespace SysPro_Lab_06
             }
         }
 
-        public int RoomsOccupied { get; private set; }
-
-        //public object locker;
+        private int roomsOccupied;
+        public string RoomsOccupied
+        {
+            get
+            {
+                return roomsOccupied.ToString();
+            }
+        }
 
         static Hotel()
         {
@@ -91,7 +96,7 @@ namespace SysPro_Lab_06
 
             Rooms = new ReadOnlyCollection<Room>(rooms);
 
-            RoomsOccupied = 0;
+            roomsOccupied = 0;
 
             holidayPeriods = new List<HolidayPeriod>();
 
@@ -115,7 +120,7 @@ namespace SysPro_Lab_06
                 if (currentDate == client.DepartureDate)
                 {
                     rooms[client.RoomIndex].IsOccupied = false;
-                    RoomsOccupied--;
+                    roomsOccupied--;
                 }
             }
         }
@@ -125,7 +130,11 @@ namespace SysPro_Lab_06
             if (!IsOpen)
                 return false;
 
+            //var t = Thread.CurrentThread.Name;
+
             var currHolidayPeriod = holidayPeriods.Last();
+
+            //currHolidayPeriod.EndDate = currHolidayPeriod.EndDate.AddDays(1);
 
             if (currentDate.AddDays(daysOfStay) >= currHolidayPeriod.EndDate)
                 return false;
@@ -155,7 +164,7 @@ namespace SysPro_Lab_06
             if (currHolidayPeriod.TryAddClient(currentDate, daysOfStay, roomIndex))
             {
                 rooms[roomIndex].IsOccupied = true;
-                RoomsOccupied++;
+                roomsOccupied++;
                 return true;
             }
             else

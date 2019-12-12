@@ -34,7 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbCurrentDate = new System.Windows.Forms.TextBox();
             this.tbHolidaySeasonEnd = new System.Windows.Forms.TextBox();
-            this.tbRoomsOccupied = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRooms = new System.Windows.Forms.DataGridView();
             this.trbDaycycleSpeed = new System.Windows.Forms.TrackBar();
@@ -44,8 +43,9 @@
             this.numDuration = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbHotelOpen = new System.Windows.Forms.TextBox();
+            this.tbHotelStatus = new System.Windows.Forms.TextBox();
             this.tmr = new System.Windows.Forms.Timer(this.components);
+            this.tbRoomsOccupied = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbDaycycleSpeed)).BeginInit();
@@ -96,14 +96,6 @@
             this.tbHolidaySeasonEnd.ReadOnly = true;
             this.tbHolidaySeasonEnd.Size = new System.Drawing.Size(157, 22);
             this.tbHolidaySeasonEnd.TabIndex = 4;
-            // 
-            // tbRoomsOccupied
-            // 
-            this.tbRoomsOccupied.Location = new System.Drawing.Point(203, 70);
-            this.tbRoomsOccupied.Name = "tbRoomsOccupied";
-            this.tbRoomsOccupied.ReadOnly = true;
-            this.tbRoomsOccupied.Size = new System.Drawing.Size(157, 22);
-            this.tbRoomsOccupied.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -214,30 +206,38 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "The hotel is";
             // 
-            // textBox1
+            // tbHotelOpen
             // 
-            this.tbHotelOpen.Location = new System.Drawing.Point(410, 54);
-            this.tbHotelOpen.Name = "textBox1";
-            this.tbHotelOpen.ReadOnly = true;
-            this.tbHotelOpen.Size = new System.Drawing.Size(74, 22);
-            this.tbHotelOpen.TabIndex = 12;
-            this.tbHotelOpen.Text = "Closed";
+            this.tbHotelStatus.Location = new System.Drawing.Point(410, 54);
+            this.tbHotelStatus.Name = "tbHotelOpen";
+            this.tbHotelStatus.ReadOnly = true;
+            this.tbHotelStatus.Size = new System.Drawing.Size(74, 22);
+            this.tbHotelStatus.TabIndex = 12;
+            this.tbHotelStatus.Text = "Closed";
             // 
             // tmr
             // 
             this.tmr.Interval = 1000;
+            // 
+            // textBox1
+            // 
+            this.tbRoomsOccupied.Location = new System.Drawing.Point(203, 70);
+            this.tbRoomsOccupied.Name = "textBox1";
+            this.tbRoomsOccupied.ReadOnly = true;
+            this.tbRoomsOccupied.Size = new System.Drawing.Size(157, 22);
+            this.tbRoomsOccupied.TabIndex = 13;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 506);
-            this.Controls.Add(this.tbHotelOpen);
+            this.Controls.Add(this.tbRoomsOccupied);
+            this.Controls.Add(this.tbHotelStatus);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tbRoomsOccupied);
             this.Controls.Add(this.tbHolidaySeasonEnd);
             this.Controls.Add(this.tbCurrentDate);
             this.Controls.Add(this.label3);
@@ -271,7 +271,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbCurrentDate;
         private System.Windows.Forms.TextBox tbHolidaySeasonEnd;
-        private System.Windows.Forms.TextBox tbRoomsOccupied;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvRooms;
         private System.Windows.Forms.TrackBar trbDaycycleSpeed;
@@ -281,8 +280,9 @@
         private System.Windows.Forms.NumericUpDown numDuration;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbHotelOpen;
+        private System.Windows.Forms.TextBox tbHotelStatus;
         private System.Windows.Forms.Timer tmr;
+        private System.Windows.Forms.TextBox tbRoomsOccupied;
     }
 }
 

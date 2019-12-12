@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-//using System.Threading;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SysPro_Lab_06
@@ -15,6 +15,10 @@ namespace SysPro_Lab_06
         Hotel hotel;
 
         BindingSource bs;
+
+        Thread generateClients;
+
+        int delay;
 
         object locker;
 
@@ -32,17 +36,28 @@ namespace SysPro_Lab_06
             tbCurrentDate.DataBindings.Add("Text", bs, "CurrentDate");
             tbHolidaySeasonEnd.DataBindings.Add("Text", bs, "CurrentSeasonEnd");
             tbRoomsOccupied.DataBindings.Add("Text", bs, "RoomsOccupied");
-            tbHotelOpen.DataBindings.Add("Text", bs, "Status");
+            tbHotelStatus.DataBindings.Add("Text", bs, "Status");
+
+            //tbCurrentDate.Text = hotel.CurrentDate;
+            //tbHolidaySeasonEnd.Text = hotel.CurrentSeasonEnd;
+            //tbRoomsOccupied.Text = hotel.RoomsOccupied;
+            //tbHotelStatus.Text = hotel.Status;
 
             dgvRooms.DataBindings.Add("DataSource", bs, "Rooms");
-
-            tmr.Interval = 5000 / trbDaycycleSpeed.Value;
-            tmr.Tick += tmrTick;
-            tmr.Start();
 
             trbDaycycleSpeed.ValueChanged += DaycycleSpeedChanged;
 
             btStart.Click += btStartClick;
+
+            delay = 5000 / trbDaycycleSpeed.Value;
+            tmr.Interval = delay;
+            tmr.Tick += tmrTick;
+            tmr.Start();
+
+            generateClients = new Thread(GenerateClients);
+            generateClients.IsBackground = true;
+            generateClients.Name = "Generate clients";
+            generateClients.Start();
         }
 
         private void btStartClick(object sender, EventArgs e)
@@ -64,8 +79,11 @@ namespace SysPro_Lab_06
 
             if (!tmr.Enabled)
                 tmr.Start();
-
-            tmr.Interval = 5000 / trbDaycycleSpeed.Value;
+            lock (locker)
+            {
+                delay = 5000 / trbDaycycleSpeed.Value;
+            }
+            tmr.Interval = delay;
         }
 
         private void tmrTick(object sender, EventArgs e)
@@ -73,8 +91,58 @@ namespace SysPro_Lab_06
             lock (locker)
             {
                 hotel.IncrementDate();
-                bs.ResetBindings(false);
+
+                //tbCurrentDate.Text = hotel.CurrentDate;
+                //tbHolidaySeasonEnd.Text = hotel.CurrentSeasonEnd;
+                //tbHotelStatus.Text = hotel.Status;
+
+                bs.ResetBindings(true);
                 dgvRooms.Refresh();
+            }
+        }
+
+        private void GenerateClients()
+        {
+            int delayMultiplier;
+            while (true)
+            {
+                lock (locker)
+                {
+                    delayMultiplier = delay / 10;
+                }
+                Thread.Sleep(Program.rand.Next(1, 5) * delayMultiplier);
+                lock (locker)
+                {
+                    if (!hotel.IsOpen)
+                        continue;
+
+                    int daysOfStay = Program.rand.Next(2, 30);
+
+                    int numberOfPeople = Program.rand.Next(1, 4);
+
+                    double maxPrice;
+
+                    switch (numberOfPeople)
+                    {
+                        case 1:
+                            maxPrice = Program.rand.Next(3, 8) * 10;
+                            break;
+                        case 2:
+                            maxPrice = Program.rand.Next(5, 12) * 10;
+                            break;
+                        case 3:
+                            maxPrice = Program.rand.Next(7, 21) * 10;
+                            break;
+                        default:
+                            maxPrice = 0;
+                            break;
+                    }
+
+                    hotel.TryAddClient(daysOfStay, numberOfPeople, maxPrice);
+                }
+
+                //Console.WriteLine(hotel.RoomsOccupied);
+                //bs.ResetBindings(false);
             }
         }
     }
