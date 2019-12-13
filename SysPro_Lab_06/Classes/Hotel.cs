@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
 
 namespace SysPro_Lab_06
 {
@@ -99,8 +97,6 @@ namespace SysPro_Lab_06
             roomsOccupied = 0;
 
             holidayPeriods = new List<HolidayPeriod>();
-
-            //locker = new object();
         }
 
         public void IncrementDate()
@@ -130,11 +126,7 @@ namespace SysPro_Lab_06
             if (!IsOpen)
                 return false;
 
-            //var t = Thread.CurrentThread.Name;
-
             var currHolidayPeriod = holidayPeriods.Last();
-
-            //currHolidayPeriod.EndDate = currHolidayPeriod.EndDate.AddDays(1);
 
             if (currentDate.AddDays(daysOfStay) >= currHolidayPeriod.EndDate)
                 return false;

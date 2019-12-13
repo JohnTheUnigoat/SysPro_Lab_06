@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -37,11 +31,6 @@ namespace SysPro_Lab_06
             tbHolidaySeasonEnd.DataBindings.Add("Text", bs, "CurrentSeasonEnd");
             tbRoomsOccupied.DataBindings.Add("Text", bs, "RoomsOccupied");
             tbHotelStatus.DataBindings.Add("Text", bs, "Status");
-
-            //tbCurrentDate.Text = hotel.CurrentDate;
-            //tbHolidaySeasonEnd.Text = hotel.CurrentSeasonEnd;
-            //tbRoomsOccupied.Text = hotel.RoomsOccupied;
-            //tbHotelStatus.Text = hotel.Status;
 
             dgvRooms.DataBindings.Add("DataSource", bs, "Rooms");
 
@@ -91,11 +80,6 @@ namespace SysPro_Lab_06
             lock (locker)
             {
                 hotel.IncrementDate();
-
-                //tbCurrentDate.Text = hotel.CurrentDate;
-                //tbHolidaySeasonEnd.Text = hotel.CurrentSeasonEnd;
-                //tbHotelStatus.Text = hotel.Status;
-
                 bs.ResetBindings(true);
                 dgvRooms.Refresh();
             }
@@ -140,9 +124,6 @@ namespace SysPro_Lab_06
 
                     hotel.TryAddClient(daysOfStay, numberOfPeople, maxPrice);
                 }
-
-                //Console.WriteLine(hotel.RoomsOccupied);
-                //bs.ResetBindings(false);
             }
         }
     }
