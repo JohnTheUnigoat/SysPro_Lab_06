@@ -46,6 +46,8 @@
             this.tbHotelStatus = new System.Windows.Forms.TextBox();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.tbRoomsOccupied = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbDaycycleSpeed)).BeginInit();
@@ -99,8 +101,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dgvRooms);
             this.groupBox1.Location = new System.Drawing.Point(18, 103);
@@ -135,8 +136,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.trbDaycycleSpeed);
             this.groupBox2.Location = new System.Drawing.Point(18, 415);
@@ -148,8 +148,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btStart);
             this.groupBox3.Controls.Add(this.numDuration);
@@ -206,10 +205,10 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "The hotel is";
             // 
-            // tbHotelOpen
+            // tbHotelStatus
             // 
             this.tbHotelStatus.Location = new System.Drawing.Point(410, 54);
-            this.tbHotelStatus.Name = "tbHotelOpen";
+            this.tbHotelStatus.Name = "tbHotelStatus";
             this.tbHotelStatus.ReadOnly = true;
             this.tbHotelStatus.Size = new System.Drawing.Size(74, 22);
             this.tbHotelStatus.TabIndex = 12;
@@ -219,19 +218,40 @@
             // 
             this.tmr.Interval = 1000;
             // 
-            // textBox1
+            // tbRoomsOccupied
             // 
             this.tbRoomsOccupied.Location = new System.Drawing.Point(203, 70);
-            this.tbRoomsOccupied.Name = "textBox1";
+            this.tbRoomsOccupied.Name = "tbRoomsOccupied";
             this.tbRoomsOccupied.ReadOnly = true;
             this.tbRoomsOccupied.Size = new System.Drawing.Size(157, 22);
             this.tbRoomsOccupied.TabIndex = 13;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 498);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(241, 34);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Load data";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(276, 498);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(241, 34);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "View logs";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 506);
+            this.ClientSize = new System.Drawing.Size(534, 544);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbRoomsOccupied);
             this.Controls.Add(this.tbHotelStatus);
             this.Controls.Add(this.label5);
@@ -246,9 +266,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(550, 545);
+            this.MaximumSize = new System.Drawing.Size(550, 583);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(550, 545);
+            this.MinimumSize = new System.Drawing.Size(550, 583);
             this.Name = "MainForm";
             this.Text = "Main Form";
             this.groupBox1.ResumeLayout(false);
@@ -283,6 +303,8 @@
         private System.Windows.Forms.TextBox tbHotelStatus;
         private System.Windows.Forms.Timer tmr;
         private System.Windows.Forms.TextBox tbRoomsOccupied;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
