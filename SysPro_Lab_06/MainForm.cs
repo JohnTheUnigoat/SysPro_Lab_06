@@ -38,10 +38,12 @@ namespace SysPro_Lab_06
             trbDaycycleSpeed.ValueChanged += DaycycleSpeedChanged;
 
             btStart.Click += btStartClick;
-
             btViewLogs.Click += BtViewLogsClick;
 
+            btLoadFromFile.Click += btLoadFromFileClick;
+
             delay = 5000 / trbDaycycleSpeed.Value;
+
             tmr.Interval = delay;
             tmr.Tick += tmrTick;
             tmr.Start();
@@ -52,13 +54,22 @@ namespace SysPro_Lab_06
             generateClients.Start();
         }
 
+        private void btLoadFromFileClick(object sender, EventArgs e)
+        {
+            hotel = Hotel.Load(Program.saveFile);
+            bs.DataSource = hotel;
+        }
+
         private void BtViewLogsClick(object sender, EventArgs e)
         {
             int prevDaycycleSpeed = trbDaycycleSpeed.Value;
 
             trbDaycycleSpeed.Value = 0;
 
-            (new LogView(hotel)).ShowDialog();
+            if (hotel.HolidayPeriods.Count == 0)
+                MessageBox.Show("No logs available!", "Error!");
+            else
+                (new LogView(hotel)).ShowDialog();
 
             trbDaycycleSpeed.Value = prevDaycycleSpeed;
         }
@@ -81,17 +92,17 @@ namespace SysPro_Lab_06
                 return;
             }
 
-            if (!tmr.Enabled)
-            {
-                tmr.Start();
-                generateClients.Interrupt();
-            }
-
             lock (locker)
             {
                 delay = 5000 / trbDaycycleSpeed.Value;
             }
             tmr.Interval = delay;
+
+            if (!tmr.Enabled)
+            {
+                tmr.Start();
+                generateClients.Interrupt();
+            }
         }
 
         private void tmrTick(object sender, EventArgs e)

@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.IO;
+using System.Text;
+using System.Xml;
 
 namespace SysPro_Lab_06
 {
+    [DataContract]
     class Hotel
     {
+        [DataMember(Name = "CurrentDate")]
         private DateTime currentDate;
         public string CurrentDate
         {
@@ -27,7 +34,8 @@ namespace SysPro_Lab_06
             }
         }
 
-        public bool IsOpen { get; private set; }
+        [DataMember]
+        public bool IsOpen { get; set; }
 
         public string Status
         {
@@ -37,9 +45,17 @@ namespace SysPro_Lab_06
             }
         }
 
-        private static readonly List<Room> rooms;
-        public ReadOnlyCollection<Room> Rooms { get; }
+        [DataMember(Name = "Rooms")]
+        private List<Room> rooms;
+        public ReadOnlyCollection<Room> Rooms
+        {
+            get
+            {
+                return new ReadOnlyCollection<Room>(rooms);
+            }
+        }
 
+        [DataMember (Name = "holidayPeriods")]
         private List<HolidayPeriod> holidayPeriods;
         public ReadOnlyCollection<HolidayPeriod> HolidayPeriods
         {
@@ -49,6 +65,7 @@ namespace SysPro_Lab_06
             }
         }
 
+        [DataMember(Name = "RoomsOccupied")]
         private int roomsOccupied;
         public string RoomsOccupied
         {
@@ -58,11 +75,13 @@ namespace SysPro_Lab_06
             }
         }
 
-        static Hotel()
+        public Hotel(DateTime currentDate)
         {
+            this.currentDate = currentDate;
+
             rooms = new List<Room>(Program.numberOfRooms);
 
-            for(int i = 0; i < Program.numberOfRooms; i++)
+            for (int i = 0; i < Program.numberOfRooms; i++)
             {
                 int maxNUmberOfPeople = Program.rand.Next(1, 4);
 
@@ -86,13 +105,6 @@ namespace SysPro_Lab_06
 
                 rooms.Add(new Room(maxNUmberOfPeople, pricePerDay));
             }
-        }
-
-        public Hotel(DateTime currentDate)
-        {
-            this.currentDate = currentDate;
-
-            Rooms = new ReadOnlyCollection<Room>(rooms);
 
             roomsOccupied = 0;
 
@@ -109,7 +121,10 @@ namespace SysPro_Lab_06
             var currHolidayPeriod = holidayPeriods.Last();
 
             if (currentDate == currHolidayPeriod.EndDate)
+            {
                 IsOpen = false;
+                Save(Program.saveFile);
+            }
 
             foreach (var client in currHolidayPeriod.Clients)
             {
@@ -132,18 +147,18 @@ namespace SysPro_Lab_06
 
             for (int i = 0; i < Rooms.Count; i++)
             {
-                if (Rooms[i].IsOccupied)
+                if (rooms[i].IsOccupied)
                     continue;
 
-                if (Rooms[i].MaxNumberOfPeople < numberOfPeople)
+                if (rooms[i].MaxNumberOfPeople < numberOfPeople)
                     continue;
 
-                if (Rooms[i].PricePerDay > maxAcceptablePrice)
+                if (rooms[i].PricePerDay > maxAcceptablePrice)
                     continue;
 
                 roomIndex = i;
 
-                if (Rooms[i].MaxNumberOfPeople == numberOfPeople)
+                if (rooms[i].MaxNumberOfPeople == numberOfPeople)
                     break;
             }
 
@@ -170,6 +185,41 @@ namespace SysPro_Lab_06
 
             holidayPeriods.Add(new HolidayPeriod(currentDate, durationDays));
             IsOpen = true;
+        }
+
+        public void Save(string fileName)
+        {
+            using (var fs = new FileStream(fileName, FileMode.Create))
+            {
+                var writer = JsonReaderWriterFactory.CreateJsonWriter(fs, Encoding.UTF8, true, true);
+                var settings = new DataContractJsonSerializerSettings
+                {
+                    DateTimeFormat = new DateTimeFormat("MM/dd/yyyy")
+                };
+                var serializer = new DataContractJsonSerializer(typeof(Hotel), settings);
+                serializer.WriteObject(writer, this);
+                writer.Flush();
+            }
+        }
+
+        public static Hotel Load(string fileName)
+        {
+            Hotel res;
+            using (var fs = new FileStream(fileName, FileMode.Open))
+            {
+                //var writer = JsonReaderWriterFactory.CreateJsonWriter(fs, Encoding.UTF8, true, true);
+                //var reader = JsonReaderWriterFactory.CreateJsonReader(fs,)
+                var settings = new DataContractJsonSerializerSettings
+                {
+                    DateTimeFormat = new DateTimeFormat("MM/dd/yyyy")
+                };
+                var serializer = new DataContractJsonSerializer(typeof(Hotel), settings);
+                res = (Hotel)serializer.ReadObject(fs);
+            }
+
+            var a = res.Rooms;
+
+            return res;
         }
     }
 }

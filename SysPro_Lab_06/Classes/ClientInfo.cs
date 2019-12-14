@@ -1,12 +1,22 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.Text;
 
 namespace SysPro_Lab_06
 {
+    [DataContract]
     class ClientInfo
     {
-        public DateTime ArrivalDate { get; }
-        public DateTime DepartureDate { get; }
-        public int RoomIndex { get; }
+        [DataMember(Name = "Arrival")]
+        public DateTime ArrivalDate { get; private set; }
+
+        [DataMember (Name = "Departure")]
+        public DateTime DepartureDate { get; private set; }
+
+        [DataMember]
+        public int RoomIndex { get; private set; }
 
         public ClientInfo(DateTime arrivalDate, int daysOfStay, int roomIndex)
         {

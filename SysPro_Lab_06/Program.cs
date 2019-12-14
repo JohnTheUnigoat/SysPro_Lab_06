@@ -6,6 +6,9 @@ namespace SysPro_Lab_06
     static class Program
     {
         internal static readonly int numberOfRooms = 20;
+
+        internal static readonly string saveFile = "../../data.json";
+
         internal static Random rand = new Random();
 
         /// <summary>

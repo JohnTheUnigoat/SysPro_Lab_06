@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 
 namespace SysPro_Lab_06
 {
+    [DataContract]
     class HolidayPeriod
     {
-        public DateTime StartDate { get; }
+        [DataMember]
+        public DateTime StartDate { get; private set; }
+
+        [DataMember]
         public DateTime EndDate { get; set; }
 
         public int Duration
@@ -17,7 +22,8 @@ namespace SysPro_Lab_06
             }
         }
 
-        private List<ClientInfo> clients;
+        [DataMember(Name = "Clients")]
+        public List<ClientInfo> clients;
         public ReadOnlyCollection<ClientInfo> Clients
         {
             get

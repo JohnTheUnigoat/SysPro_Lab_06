@@ -1,0 +1,733 @@
+{
+  "CurrentDate": "03\/19\/2020",
+  "IsOpen": false,
+  "Rooms": [
+    {
+      "MaxPeople": 3,
+      "Price": 120
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 70
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 60
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 70
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 60
+    },
+    {
+      "MaxPeople": 3,
+      "Price": 120
+    },
+    {
+      "MaxPeople": 3,
+      "Price": 200
+    },
+    {
+      "MaxPeople": 2,
+      "Price": 60
+    },
+    {
+      "MaxPeople": 3,
+      "Price": 200
+    },
+    {
+      "MaxPeople": 2,
+      "Price": 50
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 50
+    },
+    {
+      "MaxPeople": 3,
+      "Price": 80
+    },
+    {
+      "MaxPeople": 3,
+      "Price": 110
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 70
+    },
+    {
+      "MaxPeople": 3,
+      "Price": 90
+    },
+    {
+      "MaxPeople": 2,
+      "Price": 80
+    },
+    {
+      "MaxPeople": 2,
+      "Price": 90
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 50
+    },
+    {
+      "MaxPeople": 2,
+      "Price": 50
+    },
+    {
+      "MaxPeople": 1,
+      "Price": 50
+    }
+  ],
+  "RoomsOccupied": 2,
+  "holidayPeriods": [
+    {
+      "Clients": [
+        {
+          "Arrival": "12\/17\/2019",
+          "Departure": "12\/18\/2019",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "12\/18\/2019",
+          "Departure": "12\/20\/2019",
+          "RoomIndex": 10
+        },
+        {
+          "Arrival": "12\/18\/2019",
+          "Departure": "12\/19\/2019",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "12\/18\/2019",
+          "Departure": "12\/22\/2019",
+          "RoomIndex": 11
+        },
+        {
+          "Arrival": "12\/18\/2019",
+          "Departure": "12\/22\/2019",
+          "RoomIndex": 1
+        },
+        {
+          "Arrival": "12\/18\/2019",
+          "Departure": "12\/21\/2019",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "12\/19\/2019",
+          "Departure": "12\/21\/2019",
+          "RoomIndex": 9
+        },
+        {
+          "Arrival": "12\/19\/2019",
+          "Departure": "12\/21\/2019",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "12\/19\/2019",
+          "Departure": "12\/20\/2019",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "12\/19\/2019",
+          "Departure": "12\/20\/2019",
+          "RoomIndex": 12
+        },
+        {
+          "Arrival": "12\/20\/2019",
+          "Departure": "12\/21\/2019",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "12\/20\/2019",
+          "Departure": "12\/22\/2019",
+          "RoomIndex": 10
+        },
+        {
+          "Arrival": "12\/21\/2019",
+          "Departure": "12\/23\/2019",
+          "RoomIndex": 2
+        }
+      ],
+      "EndDate": "12\/23\/2019",
+      "StartDate": "12\/17\/2019"
+    },
+    {
+      "Clients": [
+        {
+          "Arrival": "12\/31\/2019",
+          "Departure": "01\/02\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "12\/31\/2019",
+          "Departure": "01\/04\/2020",
+          "RoomIndex": 9
+        },
+        {
+          "Arrival": "12\/31\/2019",
+          "Departure": "01\/02\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "01\/01\/2020",
+          "Departure": "01\/02\/2020",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "01\/01\/2020",
+          "Departure": "01\/04\/2020",
+          "RoomIndex": 16
+        },
+        {
+          "Arrival": "01\/01\/2020",
+          "Departure": "01\/04\/2020",
+          "RoomIndex": 1
+        },
+        {
+          "Arrival": "01\/01\/2020",
+          "Departure": "01\/02\/2020",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "01\/02\/2020",
+          "Departure": "01\/05\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "01\/02\/2020",
+          "Departure": "01\/04\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "01\/02\/2020",
+          "Departure": "01\/05\/2020",
+          "RoomIndex": 3
+        },
+        {
+          "Arrival": "01\/03\/2020",
+          "Departure": "01\/06\/2020",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "01\/04\/2020",
+          "Departure": "01\/05\/2020",
+          "RoomIndex": 10
+        },
+        {
+          "Arrival": "01\/05\/2020",
+          "Departure": "01\/06\/2020",
+          "RoomIndex": 0
+        }
+      ],
+      "EndDate": "01\/06\/2020",
+      "StartDate": "12\/31\/2019"
+    },
+    {
+      "Clients": [
+        {
+          "Arrival": "01\/13\/2020",
+          "Departure": "01\/25\/2020",
+          "RoomIndex": 11
+        },
+        {
+          "Arrival": "01\/13\/2020",
+          "Departure": "01\/21\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "01\/14\/2020",
+          "Departure": "01\/26\/2020",
+          "RoomIndex": 10
+        },
+        {
+          "Arrival": "01\/14\/2020",
+          "Departure": "01\/15\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "01\/14\/2020",
+          "Departure": "01\/23\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "01\/14\/2020",
+          "Departure": "01\/19\/2020",
+          "RoomIndex": 17
+        },
+        {
+          "Arrival": "01\/15\/2020",
+          "Departure": "01\/28\/2020",
+          "RoomIndex": 5
+        },
+        {
+          "Arrival": "01\/15\/2020",
+          "Departure": "01\/28\/2020",
+          "RoomIndex": 19
+        },
+        {
+          "Arrival": "01\/15\/2020",
+          "Departure": "01\/16\/2020",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "01\/15\/2020",
+          "Departure": "01\/20\/2020",
+          "RoomIndex": 12
+        },
+        {
+          "Arrival": "01\/16\/2020",
+          "Departure": "01\/25\/2020",
+          "RoomIndex": 9
+        },
+        {
+          "Arrival": "01\/16\/2020",
+          "Departure": "01\/26\/2020",
+          "RoomIndex": 1
+        },
+        {
+          "Arrival": "01\/16\/2020",
+          "Departure": "01\/24\/2020",
+          "RoomIndex": 14
+        },
+        {
+          "Arrival": "01\/17\/2020",
+          "Departure": "01\/27\/2020",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "01\/17\/2020",
+          "Departure": "01\/26\/2020",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "01\/19\/2020",
+          "Departure": "01\/28\/2020",
+          "RoomIndex": 16
+        },
+        {
+          "Arrival": "01\/20\/2020",
+          "Departure": "01\/31\/2020",
+          "RoomIndex": 12
+        },
+        {
+          "Arrival": "01\/21\/2020",
+          "Departure": "01\/22\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "01\/22\/2020",
+          "Departure": "01\/27\/2020",
+          "RoomIndex": 6
+        },
+        {
+          "Arrival": "01\/22\/2020",
+          "Departure": "01\/30\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "01\/23\/2020",
+          "Departure": "01\/25\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "01\/23\/2020",
+          "Departure": "01\/28\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "01\/26\/2020",
+          "Departure": "02\/03\/2020",
+          "RoomIndex": 9
+        },
+        {
+          "Arrival": "01\/26\/2020",
+          "Departure": "01\/30\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "01\/26\/2020",
+          "Departure": "02\/06\/2020",
+          "RoomIndex": 11
+        },
+        {
+          "Arrival": "01\/27\/2020",
+          "Departure": "01\/31\/2020",
+          "RoomIndex": 14
+        },
+        {
+          "Arrival": "01\/28\/2020",
+          "Departure": "02\/06\/2020",
+          "RoomIndex": 5
+        },
+        {
+          "Arrival": "01\/28\/2020",
+          "Departure": "01\/31\/2020",
+          "RoomIndex": 6
+        },
+        {
+          "Arrival": "01\/28\/2020",
+          "Departure": "02\/01\/2020",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "01\/28\/2020",
+          "Departure": "02\/04\/2020",
+          "RoomIndex": 1
+        },
+        {
+          "Arrival": "01\/28\/2020",
+          "Departure": "02\/03\/2020",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "01\/29\/2020",
+          "Departure": "02\/02\/2020",
+          "RoomIndex": 16
+        },
+        {
+          "Arrival": "01\/29\/2020",
+          "Departure": "02\/08\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "01\/30\/2020",
+          "Departure": "02\/04\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "01\/31\/2020",
+          "Departure": "02\/06\/2020",
+          "RoomIndex": 14
+        },
+        {
+          "Arrival": "01\/31\/2020",
+          "Departure": "02\/13\/2020",
+          "RoomIndex": 10
+        },
+        {
+          "Arrival": "01\/31\/2020",
+          "Departure": "02\/04\/2020",
+          "RoomIndex": 12
+        },
+        {
+          "Arrival": "01\/31\/2020",
+          "Departure": "02\/03\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "01\/31\/2020",
+          "Departure": "02\/01\/2020",
+          "RoomIndex": 4
+        },
+        {
+          "Arrival": "02\/01\/2020",
+          "Departure": "02\/13\/2020",
+          "RoomIndex": 3
+        },
+        {
+          "Arrival": "02\/01\/2020",
+          "Departure": "02\/14\/2020",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "02\/02\/2020",
+          "Departure": "02\/07\/2020",
+          "RoomIndex": 17
+        },
+        {
+          "Arrival": "02\/03\/2020",
+          "Departure": "02\/13\/2020",
+          "RoomIndex": 9
+        },
+        {
+          "Arrival": "02\/03\/2020",
+          "Departure": "02\/05\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "02\/03\/2020",
+          "Departure": "02\/15\/2020",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "02\/04\/2020",
+          "Departure": "02\/08\/2020",
+          "RoomIndex": 19
+        },
+        {
+          "Arrival": "02\/04\/2020",
+          "Departure": "02\/14\/2020",
+          "RoomIndex": 12
+        },
+        {
+          "Arrival": "02\/04\/2020",
+          "Departure": "02\/06\/2020",
+          "RoomIndex": 6
+        },
+        {
+          "Arrival": "02\/04\/2020",
+          "Departure": "02\/11\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "02\/04\/2020",
+          "Departure": "02\/06\/2020",
+          "RoomIndex": 16
+        },
+        {
+          "Arrival": "02\/05\/2020",
+          "Departure": "02\/14\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "02\/06\/2020",
+          "Departure": "02\/07\/2020",
+          "RoomIndex": 4
+        },
+        {
+          "Arrival": "02\/06\/2020",
+          "Departure": "02\/14\/2020",
+          "RoomIndex": 1
+        },
+        {
+          "Arrival": "02\/06\/2020",
+          "Departure": "02\/12\/2020",
+          "RoomIndex": 5
+        },
+        {
+          "Arrival": "02\/09\/2020",
+          "Departure": "02\/11\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "02\/09\/2020",
+          "Departure": "02\/10\/2020",
+          "RoomIndex": 17
+        },
+        {
+          "Arrival": "02\/10\/2020",
+          "Departure": "02\/12\/2020",
+          "RoomIndex": 11
+        },
+        {
+          "Arrival": "02\/11\/2020",
+          "Departure": "02\/12\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "02\/12\/2020",
+          "Departure": "02\/15\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "02\/12\/2020",
+          "Departure": "02\/15\/2020",
+          "RoomIndex": 5
+        },
+        {
+          "Arrival": "02\/13\/2020",
+          "Departure": "02\/15\/2020",
+          "RoomIndex": 2
+        }
+      ],
+      "EndDate": "02\/15\/2020",
+      "StartDate": "01\/12\/2020"
+    },
+    {
+      "Clients": [
+        {
+          "Arrival": "02\/29\/2020",
+          "Departure": "03\/04\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "03\/01\/2020",
+          "Departure": "03\/11\/2020",
+          "RoomIndex": 9
+        },
+        {
+          "Arrival": "03\/01\/2020",
+          "Departure": "03\/02\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "03\/01\/2020",
+          "Departure": "03\/14\/2020",
+          "RoomIndex": 11
+        },
+        {
+          "Arrival": "03\/01\/2020",
+          "Departure": "03\/05\/2020",
+          "RoomIndex": 1
+        },
+        {
+          "Arrival": "03\/02\/2020",
+          "Departure": "03\/12\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "03\/02\/2020",
+          "Departure": "03\/09\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "03\/02\/2020",
+          "Departure": "03\/04\/2020",
+          "RoomIndex": 5
+        },
+        {
+          "Arrival": "03\/03\/2020",
+          "Departure": "03\/07\/2020",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "03\/03\/2020",
+          "Departure": "03\/08\/2020",
+          "RoomIndex": 16
+        },
+        {
+          "Arrival": "03\/03\/2020",
+          "Departure": "03\/09\/2020",
+          "RoomIndex": 12
+        },
+        {
+          "Arrival": "03\/03\/2020",
+          "Departure": "03\/04\/2020",
+          "RoomIndex": 14
+        },
+        {
+          "Arrival": "03\/04\/2020",
+          "Departure": "03\/14\/2020",
+          "RoomIndex": 10
+        },
+        {
+          "Arrival": "03\/04\/2020",
+          "Departure": "03\/09\/2020",
+          "RoomIndex": 4
+        },
+        {
+          "Arrival": "03\/05\/2020",
+          "Departure": "03\/13\/2020",
+          "RoomIndex": 14
+        },
+        {
+          "Arrival": "03\/05\/2020",
+          "Departure": "03\/15\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "03\/05\/2020",
+          "Departure": "03\/11\/2020",
+          "RoomIndex": 5
+        },
+        {
+          "Arrival": "03\/05\/2020",
+          "Departure": "03\/09\/2020",
+          "RoomIndex": 17
+        },
+        {
+          "Arrival": "03\/06\/2020",
+          "Departure": "03\/15\/2020",
+          "RoomIndex": 18
+        },
+        {
+          "Arrival": "03\/06\/2020",
+          "Departure": "03\/14\/2020",
+          "RoomIndex": 6
+        },
+        {
+          "Arrival": "03\/08\/2020",
+          "Departure": "03\/13\/2020",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "03\/09\/2020",
+          "Departure": "03\/15\/2020",
+          "RoomIndex": 16
+        },
+        {
+          "Arrival": "03\/09\/2020",
+          "Departure": "03\/17\/2020",
+          "RoomIndex": 0
+        },
+        {
+          "Arrival": "03\/09\/2020",
+          "Departure": "03\/10\/2020",
+          "RoomIndex": 17
+        },
+        {
+          "Arrival": "03\/09\/2020",
+          "Departure": "03\/16\/2020",
+          "RoomIndex": 4
+        },
+        {
+          "Arrival": "03\/10\/2020",
+          "Departure": "03\/17\/2020",
+          "RoomIndex": 12
+        },
+        {
+          "Arrival": "03\/10\/2020",
+          "Departure": "03\/13\/2020",
+          "RoomIndex": 8
+        },
+        {
+          "Arrival": "03\/11\/2020",
+          "Departure": "03\/16\/2020",
+          "RoomIndex": 1
+        },
+        {
+          "Arrival": "03\/11\/2020",
+          "Departure": "03\/19\/2020",
+          "RoomIndex": 9
+        },
+        {
+          "Arrival": "03\/12\/2020",
+          "Departure": "03\/16\/2020",
+          "RoomIndex": 2
+        },
+        {
+          "Arrival": "03\/12\/2020",
+          "Departure": "03\/13\/2020",
+          "RoomIndex": 17
+        },
+        {
+          "Arrival": "03\/13\/2020",
+          "Departure": "03\/17\/2020",
+          "RoomIndex": 5
+        },
+        {
+          "Arrival": "03\/14\/2020",
+          "Departure": "03\/18\/2020",
+          "RoomIndex": 15
+        },
+        {
+          "Arrival": "03\/14\/2020",
+          "Departure": "03\/15\/2020",
+          "RoomIndex": 11
+        },
+        {
+          "Arrival": "03\/15\/2020",
+          "Departure": "03\/16\/2020",
+          "RoomIndex": 7
+        },
+        {
+          "Arrival": "03\/15\/2020",
+          "Departure": "03\/16\/2020",
+          "RoomIndex": 11
+        },
+        {
+          "Arrival": "03\/16\/2020",
+          "Departure": "03\/19\/2020",
+          "RoomIndex": 7
+        }
+      ],
+      "EndDate": "03\/19\/2020",
+      "StartDate": "02\/29\/2020"
+    }
+  ]
+}

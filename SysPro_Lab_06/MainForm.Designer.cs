@@ -37,8 +37,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRooms = new System.Windows.Forms.DataGridView();
             this.trbDaycycleSpeed = new System.Windows.Forms.TrackBar();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbSpeedControl = new System.Windows.Forms.GroupBox();
+            this.gbSeasonControl = new System.Windows.Forms.GroupBox();
             this.btStart = new System.Windows.Forms.Button();
             this.numDuration = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,14 +46,13 @@
             this.tbHotelStatus = new System.Windows.Forms.TextBox();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.tbRoomsOccupied = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btLoadFromFile = new System.Windows.Forms.Button();
             this.btViewLogs = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbDaycycleSpeed)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbSpeedControl.SuspendLayout();
+            this.gbSeasonControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDuration)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,33 +132,34 @@
             this.trbDaycycleSpeed.Name = "trbDaycycleSpeed";
             this.trbDaycycleSpeed.Size = new System.Drawing.Size(158, 45);
             this.trbDaycycleSpeed.TabIndex = 8;
+            this.trbDaycycleSpeed.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trbDaycycleSpeed.Value = 5;
             // 
-            // groupBox2
+            // gbSpeedControl
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbSpeedControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.trbDaycycleSpeed);
-            this.groupBox2.Location = new System.Drawing.Point(18, 415);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(170, 75);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Daycycle speed";
+            this.gbSpeedControl.Controls.Add(this.trbDaycycleSpeed);
+            this.gbSpeedControl.Location = new System.Drawing.Point(18, 415);
+            this.gbSpeedControl.Name = "gbSpeedControl";
+            this.gbSpeedControl.Size = new System.Drawing.Size(170, 75);
+            this.gbSpeedControl.TabIndex = 9;
+            this.gbSpeedControl.TabStop = false;
+            this.gbSpeedControl.Text = "Daycycle speed";
             // 
-            // groupBox3
+            // gbSeasonControl
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbSeasonControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.btStart);
-            this.groupBox3.Controls.Add(this.numDuration);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(194, 415);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(323, 75);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Holiday season";
+            this.gbSeasonControl.Controls.Add(this.btStart);
+            this.gbSeasonControl.Controls.Add(this.numDuration);
+            this.gbSeasonControl.Controls.Add(this.label4);
+            this.gbSeasonControl.Location = new System.Drawing.Point(194, 415);
+            this.gbSeasonControl.Name = "gbSeasonControl";
+            this.gbSeasonControl.Size = new System.Drawing.Size(323, 75);
+            this.gbSeasonControl.TabIndex = 10;
+            this.gbSeasonControl.TabStop = false;
+            this.gbSeasonControl.Text = "Holiday season";
             // 
             // btStart
             // 
@@ -227,46 +227,36 @@
             this.tbRoomsOccupied.Size = new System.Drawing.Size(157, 22);
             this.tbRoomsOccupied.TabIndex = 13;
             // 
-            // button1
+            // btLoadFromFile
             // 
-            this.button1.Location = new System.Drawing.Point(18, 498);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 34);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Load data";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btLoadFromFile.Location = new System.Drawing.Point(18, 498);
+            this.btLoadFromFile.Name = "btLoadFromFile";
+            this.btLoadFromFile.Size = new System.Drawing.Size(247, 34);
+            this.btLoadFromFile.TabIndex = 14;
+            this.btLoadFromFile.Text = "Load from file";
+            this.btLoadFromFile.UseVisualStyleBackColor = true;
             // 
             // btViewLogs
             // 
-            this.btViewLogs.Location = new System.Drawing.Point(188, 498);
+            this.btViewLogs.Location = new System.Drawing.Point(270, 498);
             this.btViewLogs.Name = "btViewLogs";
-            this.btViewLogs.Size = new System.Drawing.Size(158, 34);
+            this.btViewLogs.Size = new System.Drawing.Size(247, 34);
             this.btViewLogs.TabIndex = 15;
             this.btViewLogs.Text = "View logs";
             this.btViewLogs.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(359, 498);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 34);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 544);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btViewLogs);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btLoadFromFile);
             this.Controls.Add(this.tbRoomsOccupied);
             this.Controls.Add(this.tbHotelStatus);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbSeasonControl);
+            this.Controls.Add(this.gbSpeedControl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbHolidaySeasonEnd);
             this.Controls.Add(this.tbCurrentDate);
@@ -284,10 +274,10 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbDaycycleSpeed)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbSpeedControl.ResumeLayout(false);
+            this.gbSpeedControl.PerformLayout();
+            this.gbSeasonControl.ResumeLayout(false);
+            this.gbSeasonControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDuration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -304,8 +294,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvRooms;
         private System.Windows.Forms.TrackBar trbDaycycleSpeed;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbSpeedControl;
+        private System.Windows.Forms.GroupBox gbSeasonControl;
         private System.Windows.Forms.Button btStart;
         private System.Windows.Forms.NumericUpDown numDuration;
         private System.Windows.Forms.Label label4;
@@ -313,9 +303,8 @@
         private System.Windows.Forms.TextBox tbHotelStatus;
         private System.Windows.Forms.Timer tmr;
         private System.Windows.Forms.TextBox tbRoomsOccupied;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btLoadFromFile;
         private System.Windows.Forms.Button btViewLogs;
-        private System.Windows.Forms.Button button2;
     }
 }
 
