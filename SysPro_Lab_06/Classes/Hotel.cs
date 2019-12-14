@@ -128,9 +128,6 @@ namespace SysPro_Lab_06
 
             var currHolidayPeriod = holidayPeriods.Last();
 
-            if (currentDate.AddDays(daysOfStay) >= currHolidayPeriod.EndDate)
-                return false;
-
             int roomIndex = -1;
 
             for (int i = 0; i < Rooms.Count; i++)

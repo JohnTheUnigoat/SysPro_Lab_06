@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SysPro_Lab_06
 {
@@ -38,6 +39,8 @@ namespace SysPro_Lab_06
 
             btStart.Click += btStartClick;
 
+            btViewLogs.Click += BtViewLogsClick;
+
             delay = 5000 / trbDaycycleSpeed.Value;
             tmr.Interval = delay;
             tmr.Tick += tmrTick;
@@ -47,6 +50,17 @@ namespace SysPro_Lab_06
             generateClients.IsBackground = true;
             generateClients.Name = "Generate clients";
             generateClients.Start();
+        }
+
+        private void BtViewLogsClick(object sender, EventArgs e)
+        {
+            int prevDaycycleSpeed = trbDaycycleSpeed.Value;
+
+            trbDaycycleSpeed.Value = 0;
+
+            (new LogView(hotel)).ShowDialog();
+
+            trbDaycycleSpeed.Value = prevDaycycleSpeed;
         }
 
         private void btStartClick(object sender, EventArgs e)
@@ -62,12 +76,17 @@ namespace SysPro_Lab_06
         {
             if (trbDaycycleSpeed.Value == 0)
             {
+                delay = 0;
                 tmr.Stop();
                 return;
             }
 
             if (!tmr.Enabled)
+            {
                 tmr.Start();
+                generateClients.Interrupt();
+            }
+
             lock (locker)
             {
                 delay = 5000 / trbDaycycleSpeed.Value;
@@ -88,19 +107,35 @@ namespace SysPro_Lab_06
         private void GenerateClients()
         {
             int delayMultiplier;
+
             while (true)
             {
                 lock (locker)
                 {
                     delayMultiplier = delay / 10;
                 }
-                Thread.Sleep(Program.rand.Next(1, 5) * delayMultiplier);
+
+                // If daycycle speed was set to 0, go to sleep
+                if (delayMultiplier == 0)
+                    try
+                    {
+                        Thread.Sleep(Timeout.Infinite);
+                    }
+                    catch (ThreadInterruptedException)
+                    {
+                        // Wake sleeping thread when daycycle continues
+                    }
+                else
+                    Thread.Sleep(Program.rand.Next(1, 5) * delayMultiplier);
+
                 lock (locker)
                 {
                     if (!hotel.IsOpen)
                         continue;
 
-                    int daysOfStay = Program.rand.Next(2, 30);
+                    int holidayDuration = hotel.HolidayPeriods.Last().Duration;
+
+                    int daysOfStay = Program.rand.Next(2, 15 < holidayDuration ? 15 : holidayDuration);
 
                     int numberOfPeople = Program.rand.Next(1, 4);
 

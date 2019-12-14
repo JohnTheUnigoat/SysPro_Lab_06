@@ -13,5 +13,12 @@ namespace SysPro_Lab_06
             PricePerDay = pricePerDay;
             IsOccupied = false;
         }
+
+        public Room(Room other)
+        {
+            MaxNumberOfPeople = other.MaxNumberOfPeople;
+            PricePerDay = other.PricePerDay;
+            IsOccupied = false;
+        }
     }
 }

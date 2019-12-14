@@ -9,6 +9,14 @@ namespace SysPro_Lab_06
         public DateTime StartDate { get; }
         public DateTime EndDate { get; set; }
 
+        public int Duration
+        {
+            get
+            {
+                return (EndDate - StartDate).Days;
+            }
+        }
+
         private List<ClientInfo> clients;
         public ReadOnlyCollection<ClientInfo> Clients
         {
@@ -21,22 +29,27 @@ namespace SysPro_Lab_06
         public HolidayPeriod(DateTime startDate, int durationDays)
         {
             StartDate = startDate;
-            EndDate = startDate.AddDays(durationDays);
+            EndDate = startDate.AddDays(durationDays - 1);
 
             clients = new List<ClientInfo>();
         }
 
         public bool TryAddClient(DateTime arrivalDate, int daysOfStay, int roomIndex)
         {
-            if(arrivalDate < StartDate || arrivalDate >= EndDate)
+            if(arrivalDate < StartDate || arrivalDate > EndDate)
                 return false;
 
-            if (arrivalDate.AddDays(daysOfStay) >= EndDate)
+            if (arrivalDate.AddDays(daysOfStay - 1) > EndDate)
                 return false;
 
             clients.Add(new ClientInfo(arrivalDate, daysOfStay, roomIndex));
 
             return true;
+        }
+
+        public override string ToString()
+        {
+            return $"{StartDate.ToShortDateString()} - {EndDate.ToShortDateString()}";
         }
     }
 }

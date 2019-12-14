@@ -31,21 +31,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRooms = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btIncrementDate = new System.Windows.Forms.Button();
+            this.btDecrementDate = new System.Windows.Forms.Button();
+            this.tbSelectedDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.lblEndDate = new System.Windows.Forms.Label();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.trbSelectedDate = new System.Windows.Forms.TrackBar();
             this.tbRoomsOccupied = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbHolidayPeriods = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbSelectedDate)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -67,18 +67,19 @@
             this.dgvRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRooms.Location = new System.Drawing.Point(6, 21);
             this.dgvRooms.Name = "dgvRooms";
+            this.dgvRooms.ReadOnly = true;
             this.dgvRooms.Size = new System.Drawing.Size(487, 279);
             this.dgvRooms.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.btIncrementDate);
+            this.groupBox2.Controls.Add(this.btDecrementDate);
+            this.groupBox2.Controls.Add(this.tbSelectedDate);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.trackBar1);
+            this.groupBox2.Controls.Add(this.lblEndDate);
+            this.groupBox2.Controls.Add(this.lblStartDate);
+            this.groupBox2.Controls.Add(this.trbSelectedDate);
             this.groupBox2.Location = new System.Drawing.Point(12, 39);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(499, 100);
@@ -86,31 +87,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Timeline";
             // 
-            // button2
+            // btIncrementDate
             // 
-            this.button2.Location = new System.Drawing.Point(313, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 20);
-            this.button2.TabIndex = 6;
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btIncrementDate.Location = new System.Drawing.Point(313, 15);
+            this.btIncrementDate.Name = "btIncrementDate";
+            this.btIncrementDate.Size = new System.Drawing.Size(21, 20);
+            this.btIncrementDate.TabIndex = 6;
+            this.btIncrementDate.Text = ">";
+            this.btIncrementDate.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btDecrementDate
             // 
-            this.button1.Location = new System.Drawing.Point(212, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(21, 20);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btDecrementDate.Location = new System.Drawing.Point(212, 15);
+            this.btDecrementDate.Name = "btDecrementDate";
+            this.btDecrementDate.Size = new System.Drawing.Size(21, 20);
+            this.btDecrementDate.TabIndex = 5;
+            this.btDecrementDate.Text = "<";
+            this.btDecrementDate.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbSelectedDate
             // 
-            this.textBox1.Location = new System.Drawing.Point(239, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "01/01/1970";
+            this.tbSelectedDate.Location = new System.Drawing.Point(239, 15);
+            this.tbSelectedDate.Name = "tbSelectedDate";
+            this.tbSelectedDate.ReadOnly = true;
+            this.tbSelectedDate.Size = new System.Drawing.Size(68, 20);
+            this.tbSelectedDate.TabIndex = 4;
+            this.tbSelectedDate.Text = "01/01/1970";
             // 
             // label3
             // 
@@ -121,30 +123,31 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Selected date:";
             // 
-            // label2
+            // lblEndDate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(422, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "01/01/1970";
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Location = new System.Drawing.Point(422, 33);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(65, 13);
+            this.lblEndDate.TabIndex = 2;
+            this.lblEndDate.Text = "01/01/1970";
             // 
-            // label1
+            // lblStartDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "01/01/1970";
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(6, 33);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(65, 13);
+            this.lblStartDate.TabIndex = 1;
+            this.lblStartDate.Text = "01/01/1970";
             // 
-            // trackBar1
+            // trbSelectedDate
             // 
-            this.trackBar1.Location = new System.Drawing.Point(6, 49);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(487, 45);
-            this.trackBar1.TabIndex = 0;
+            this.trbSelectedDate.LargeChange = 1;
+            this.trbSelectedDate.Location = new System.Drawing.Point(6, 49);
+            this.trbSelectedDate.Name = "trbSelectedDate";
+            this.trbSelectedDate.Size = new System.Drawing.Size(487, 45);
+            this.trbSelectedDate.TabIndex = 0;
             // 
             // tbRoomsOccupied
             // 
@@ -163,13 +166,13 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Rooms occupied:";
             // 
-            // comboBox1
+            // cbHolidayPeriods
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(100, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbHolidayPeriods.FormattingEnabled = true;
+            this.cbHolidayPeriods.Location = new System.Drawing.Point(100, 12);
+            this.cbHolidayPeriods.Name = "cbHolidayPeriods";
+            this.cbHolidayPeriods.Size = new System.Drawing.Size(170, 21);
+            this.cbHolidayPeriods.TabIndex = 1;
             // 
             // label5
             // 
@@ -186,18 +189,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 489);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbHolidayPeriods);
             this.Controls.Add(this.tbRoomsOccupied);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(539, 528);
+            this.MinimumSize = new System.Drawing.Size(539, 528);
             this.Name = "LogView";
             this.Text = "LogView";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbSelectedDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,16 +213,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvRooms;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btIncrementDate;
+        private System.Windows.Forms.Button btDecrementDate;
+        private System.Windows.Forms.TextBox tbSelectedDate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label lblEndDate;
+        private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.TrackBar trbSelectedDate;
         private System.Windows.Forms.TextBox tbRoomsOccupied;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbHolidayPeriods;
         private System.Windows.Forms.Label label5;
     }
 }

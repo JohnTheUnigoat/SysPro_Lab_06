@@ -11,8 +11,13 @@ namespace SysPro_Lab_06
         public ClientInfo(DateTime arrivalDate, int daysOfStay, int roomIndex)
         {
             ArrivalDate = arrivalDate;
-            DepartureDate = arrivalDate.AddDays(daysOfStay);
+            DepartureDate = arrivalDate.AddDays(daysOfStay - 1);
             RoomIndex = roomIndex;
+        }
+
+        public override string ToString()
+        {
+            return $"Room {RoomIndex, 2}: {ArrivalDate.ToShortDateString(), 10} - {DepartureDate.ToShortDateString(), 10}";
         }
     }
 }
